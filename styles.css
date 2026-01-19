@@ -1,0 +1,289 @@
+/* Reset and base styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Cathedral colors - deep blues, cold, academic */
+    --cathedral-bg: #1a1a2e;
+    --cathedral-accent: #16213e;
+    --cathedral-text: #e8e8e8;
+    --cathedral-highlight: #4a69bd;
+
+    /* Bazaar colors - warm reds, energetic, revolutionary */
+    --bazaar-bg: #2d132c;
+    --bazaar-accent: #4a1942;
+    --bazaar-text: #f5f5f5;
+    --bazaar-highlight: #ee5a24;
+
+    /* Shared colors */
+    --header-bg: #0a0a0a;
+    --header-text: #ffffff;
+    --border-color: #333;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: var(--header-bg);
+    border-bottom: 4px solid var(--border-color);
+}
+
+.page-header h1 {
+    font-family: 'Oswald', Impact, sans-serif;
+    font-size: clamp(1.75rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+.blurb {
+    font-size: 1.1rem;
+    font-weight: 600;
+    opacity: 0.85;
+    letter-spacing: 0.05em;
+}
+
+/* Poster Container - Two Column Layout */
+.poster-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex: 1;
+}
+
+/* Individual Panels */
+.panel {
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid var(--border-color);
+}
+
+.panel-cathedral {
+    background: linear-gradient(180deg, var(--cathedral-bg) 0%, var(--cathedral-accent) 100%);
+    color: var(--cathedral-text);
+    border-right-width: 2px;
+}
+
+.panel-bazaar {
+    background: linear-gradient(180deg, var(--bazaar-bg) 0%, var(--bazaar-accent) 100%);
+    color: var(--bazaar-text);
+    border-left-width: 2px;
+}
+
+/* Panel Header */
+.panel-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 3px solid currentColor;
+}
+
+.panel-symbol {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.faction-name {
+    font-family: 'Oswald', Impact, sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.panel-cathedral .faction-name {
+    color: var(--cathedral-highlight);
+}
+
+.panel-bazaar .faction-name {
+    color: var(--bazaar-highlight);
+}
+
+.faction-subtitle {
+    font-family: 'Oswald', Impact, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* Manifesto Quote */
+.manifesto {
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.6;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid currentColor;
+    opacity: 0.95;
+}
+
+.panel-cathedral .manifesto {
+    border-color: var(--cathedral-highlight);
+    background: rgba(74, 105, 189, 0.1);
+}
+
+.panel-bazaar .manifesto {
+    border-color: var(--bazaar-highlight);
+    background: rgba(238, 90, 36, 0.1);
+}
+
+/* Signatories Section */
+.signatories {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 2px dashed currentColor;
+}
+
+.signatories h3 {
+    font-family: 'Oswald', Impact, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.signatory-list {
+    list-style: none;
+}
+
+.signatory-list li {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.signatory-list li:last-child {
+    border-bottom: none;
+}
+
+.signatory-list a {
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.panel-cathedral .signatory-list a {
+    color: var(--cathedral-highlight);
+}
+
+.panel-bazaar .signatory-list a {
+    color: var(--bazaar-highlight);
+}
+
+.signatory-list a:hover {
+    text-decoration: underline;
+    opacity: 0.85;
+}
+
+.credential {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 400;
+    opacity: 0.75;
+    margin-top: 0.15rem;
+}
+
+.signatories-needed {
+    font-style: italic;
+    opacity: 0.7;
+    padding: 0.75rem 0;
+}
+
+/* Page Footer */
+.page-footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: var(--header-bg);
+    border-top: 4px solid var(--border-color);
+}
+
+.page-footer p {
+    font-family: 'Oswald', Impact, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Responsive - Mobile Layout */
+@media (max-width: 768px) {
+    .poster-container {
+        grid-template-columns: 1fr;
+    }
+
+    .panel.panel-cathedral,
+    .panel.panel-bazaar {
+        border-right-width: 3px;
+        border-left-width: 3px;
+    }
+
+    .panel.panel-cathedral {
+        border-bottom-width: 2px;
+    }
+
+    .panel.panel-bazaar {
+        border-top-width: 2px;
+    }
+
+    .panel-header {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .panel-symbol {
+        font-size: 2.5rem;
+    }
+
+    .manifesto {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .page-header {
+        padding: 1.5rem 1rem;
+    }
+
+    .page-footer {
+        padding: 1rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 375px) {
+    html {
+        font-size: 14px;
+    }
+
+    .panel {
+        padding: 1.5rem 1rem;
+    }
+}
